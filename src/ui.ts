@@ -24,36 +24,36 @@ export class GameUI {
     app.innerHTML = `
       <header class="header">
         <h1>MathGrid</h1>
-        <p>Complete the number grid by solving simple math equations!</p>
+        <p>¡Completa la cuadrícula numérica resolviendo ecuaciones matemáticas simples!</p>
       </header>
 
       <div class="game-controls">
         <div class="difficulty-selector">
-          <span class="stat-label">Difficulty:</span>
-          <button class="difficulty-btn active" data-difficulty="easy">Easy</button>
-          <button class="difficulty-btn" data-difficulty="medium">Medium</button>
-          <button class="difficulty-btn" data-difficulty="hard">Hard</button>
+          <span class="stat-label">Dificultad:</span>
+          <button class="difficulty-btn active" data-difficulty="easy">Fácil</button>
+          <button class="difficulty-btn" data-difficulty="medium">Medio</button>
+          <button class="difficulty-btn" data-difficulty="hard">Difícil</button>
         </div>
 
         <div class="game-stats">
           <div class="stat-item">
-            <span class="stat-label">Time</span>
+            <span class="stat-label">Tiempo</span>
             <span class="stat-value timer" id="timer">00:00</span>
           </div>
           <div class="stat-item">
-            <span class="stat-label">Score</span>
+            <span class="stat-label">Puntuación</span>
             <span class="stat-value score" id="score">0</span>
           </div>
           <div class="stat-item">
-            <span class="stat-label">Hints</span>
+            <span class="stat-label">Pistas</span>
             <span class="stat-value" id="hints">3/3</span>
           </div>
         </div>
 
         <div class="action-buttons">
-          <button class="btn btn-primary" id="new-game">🎮 New Game</button>
-          <button class="btn btn-secondary" id="hint-btn">💡 Hint</button>
-          <button class="btn btn-success" id="save-game">💾 Save</button>
+          <button class="btn btn-primary" id="new-game">🎮 Nuevo Juego</button>
+          <button class="btn btn-secondary" id="hint-btn">💡 Pista</button>
+          <button class="btn btn-success" id="save-game">💾 Guardar</button>
         </div>
       </div>
 
@@ -69,11 +69,11 @@ export class GameUI {
 
       <div class="modal-overlay" id="input-modal" style="display: none;">
         <div class="modal">
-          <h3>Enter your answer</h3>
+          <h3>Ingresa tu respuesta</h3>
           <input type="number" class="number-input" id="number-input" placeholder="?" min="0" max="999">
           <div class="modal-buttons">
-            <button class="btn btn-success" id="submit-answer">✓ Submit</button>
-            <button class="btn btn-secondary" id="cancel-input">✗ Cancel</button>
+            <button class="btn btn-success" id="submit-answer">✓ Enviar</button>
+            <button class="btn btn-secondary" id="cancel-input">✗ Cancelar</button>
           </div>
         </div>
       </div>
@@ -290,7 +290,7 @@ export class GameUI {
     if (!this.gameState) return;
     
     GameStorage.saveGame(this.gameState);
-    this.showSuccessMessage('Game saved successfully!');
+    this.showSuccessMessage('¡Juego guardado exitosamente!');
   }
 
   private completeGame(): void {
@@ -303,7 +303,7 @@ export class GameUI {
     GameStorage.updateGameStats(this.gameState, finalScore);
     GameStorage.clearGameState(); // Clear saved state after completion
     
-    this.showSuccessMessage(`🎉 Congratulations! Final Score: ${finalScore}`);
+    this.showSuccessMessage(`🎉 ¡Felicitaciones! Puntuación Final: ${finalScore}`);
     this.updateUI();
   }
 
