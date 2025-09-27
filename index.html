@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MathGrid - Juego de Rompecabezas Matemáticos</title>
+  </head>
+  <body>
+    <div id="app">
+      <header class="header">
+        <h1>🧮 MathGrid</h1>
+        <p class="subtitle">¡Completa la cuadrícula numérica con ecuaciones matemáticas!</p>
+      </header>
+
+      <main class="main">
+        <div class="game-controls">
+          <div class="difficulty-selector">
+            <label for="difficulty">Dificultad:</label>
+            <select id="difficulty">
+              <option value="easy">Fácil (3x3)</option>
+              <option value="medium">Medio (4x4)</option>
+              <option value="hard">Difícil (5x5)</option>
+            </select>
+          </div>
+          
+          <div class="game-actions">
+            <button id="new-game" class="btn btn-primary">Nuevo Juego</button>
+            <button id="hint-btn" class="btn btn-secondary">Pista (<span id="hint-count">3</span>)</button>
+          </div>
+        </div>
+
+        <div class="game-stats">
+          <div class="stat">
+            <span class="stat-label">Tiempo:</span>
+            <span id="timer" class="stat-value">00:00</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Puntuación:</span>
+            <span id="score" class="stat-value">0</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Progreso:</span>
+            <span id="progress" class="stat-value">0/9</span>
+          </div>
+        </div>
+
+        <div id="game-grid" class="game-grid"></div>
+
+        <div class="data-controls">
+          <div class="data-actions">
+            <button id="save-game" class="btn btn-outline">Guardar Juego</button>
+            <button id="load-game" class="btn btn-outline">Cargar Juego</button>
+            <button id="export-data" class="btn btn-outline">Exportar Datos</button>
+            <button id="import-data" class="btn btn-outline">Importar Datos</button>
+            <button id="reset-stats" class="btn btn-danger">Reiniciar Estadísticas</button>
+          </div>
+          <input type="file" id="import-file" accept=".json" style="display: none;">
+        </div>
+
+        <div class="stats-display">
+          <h3>📊 Game Statistics</h3>
+          <div class="stats-grid">
+            <div class="stat-item"><span>Partidas Jugadas:</span> <span id="games-played">0</span></div>
+            <div class="stat-item"><span>Partidas Ganadas:</span> <span id="games-won">0</span></div>
+            <div class="stat-item"><span>Tasa de Victoria:</span> <span id="win-rate">0%</span></div>
+            <div class="stat-item"><span>Puntuación Máxima:</span> <span id="high-score">0</span></div>
+            <div class="stat-item"><span>Mejor Tiempo (Fácil):</span> <span id="best-time-easy">--:--</span></div>
+            <div class="stat-item"><span>Mejor Tiempo (Medio):</span> <span id="best-time-medium">--:--</span></div>
+            <div class="stat-item"><span>Mejor Tiempo (Difícil):</span> <span id="best-time-hard">--:--</span></div>
+            <div class="stat-item"><span>Puntuación Promedio:</span> <span id="avg-score">0</span></div>
+            <div class="stat-item"><span>Tiempo Total de Juego:</span> <span id="total-time">00:00:00</span></div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
